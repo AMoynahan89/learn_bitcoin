@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+
+{% block content %}
+<div class="code">
+    {% include 'intro_text.html' %}
+</div>
+<div class="block" id="genesis">
+    <div class="content">
+        <h2 class="block_header">Genesis</h2>
+    </div>
+</div>
+<div class="line"></div>
+<div class="block" id="bitcoin">
+    <div class="content">
+        <h2 class="block-header">Bitcoin</h2>
+        <p class="content" id="price"></p>
+    </div>
+</div>
+<div class="line"></div>
+<div class="block" id="nodes">
+    <div class="content">
+        <h2 class="block-header">Nodes</h2>
+    </div>
+</div>
+<div class="line"></div>
+<div class="block" id="mining">
+    <div class="content">
+        <h2 class="block-header">Mining</h2>
+        <p class="content" id="block-height"></p>
+        <p class="content" id="block-hash"></p>
+    </div>
+</div>
+{% endblock %}
