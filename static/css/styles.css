@@ -1,0 +1,53 @@
+body {
+    background-color: #252525;
+    color: #fff;
+ 
+}
+
+/* Container for each block */
+.block {
+    width: 70%; /* Width of each block */
+    height: 70vh; /* Full viewport height for each block */
+    background-color: #547d72; /* Background color of each block */
+    /* opacity: .5; */
+    color: #fff; /* Text color of each block */
+    border-radius: 10px; /* Rounded corners */
+    margin: auto; /* Center horizontally with space above*/
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: relative; /* Relative positioning for z-index purposes */
+}
+
+/* Vertical line connecting blocks */
+.line {
+    width: 10px;
+    height: 10vh;
+    background: linear-gradient(to bottom, #6b8b6c, #60d3ed);
+    margin: 0 auto; /* Center horizontally */
+    position: relative; /* Position relative to surrounding content */
+}
+
+/* Style for the content inside each block */
+.content {
+    text-align: center; /* Center text inside block */
+    font-size: 24px; /* Font size */
+    font-weight: bold; /* Bold text */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin: auto
+}
+
+/* Additional styles to ensure scrolling reveals each block */
+html, body {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.code {
+    width: 70%; /* Width of each block */
+    height: 25vh; /* Full viewport height for each block */
+    margin: auto; /* Center horizontally with space above*/
+    align-content: center; /* Center horizontally */
+    overflow: hidden;
+    padding: 20px 0 20px 0;
+}
+
