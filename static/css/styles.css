@@ -63,6 +63,8 @@ body {
 
 /* Style the content */
 .content {
+    display: flex;
+    flex-direction: row;
     flex-grow: 1; /* allow content to take up remaining space */
     padding: 20px;
     transition: margin-left 0.3s;
@@ -84,4 +86,9 @@ body {
     .sidenav.open {
         width: 200px;
     }
+}
+
+.content-card {
+    display: flex;
+    flex-direction: row;
 }
