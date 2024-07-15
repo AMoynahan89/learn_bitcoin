@@ -3,14 +3,19 @@
 {% block title %}Learn Bitcoin{% endblock %}
 
 {% block content %}
-<div class="sub-content">
-    <h1>Bitcoin</h1>
-    <p>A decentralized digital currency.</p>
-    <img src="images/bitcoin_logo.png" alt="Bitcoin Logo" >
-    <!--{% include "intro_text.html" %}-->
-    <form action="/genesis">
-        <button>Genesis</button>
-    </form>
+<div class="content" id="bitcoin">
+    <div class="card">
+        <div class="card-element">
+        <h1>What is Bitcoin</h1>
+        <p>A decentralized digital currency.</p>
+        <form action="/bitcoin">
+            <button>Genesis</button>
+        </form>
+        </div>
+        <div class="card-element">
+        <img src="https://amoynahan89.github.io/learn_bitcoin/images/bitcoin_logo.png" alt="Bitcoin Logo" height="150px" width="150px">
+        </div>
+    </div>
 </div>
 {% endblock %}
 
