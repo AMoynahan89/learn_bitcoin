@@ -1,0 +1,229 @@
+body {
+    background-color: rgb(2, 35, 68); /* #252525; */
+    color: #fff;
+    margin: 0;
+}
+
+html, body {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+
+/* ### Template layout ### */
+
+.header {
+    padding: 20px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.footer {
+    padding: 40px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+}
+
+.flex-item-left, .flex-item-right {
+    background-color: rgb(2, 35, 68);
+    padding: 10px;
+    flex: 25%;
+    position: relative;
+    z-index: 1;
+}
+  
+.flex-item-center {
+    background-color: rgb(2, 35, 68);
+    padding: 10px;
+    flex: 50%;
+}
+
+/* ### Center flex-item ### */
+
+/* Container for each block */
+.block {
+    width: 100%; /* Width of each block */
+    /* height: 70vh;  Full viewport height for each block */
+    background-color: #547d72; /* Background color of each block */
+    /* opacity: .5; */
+    color: #fff; /* Text color of each block */
+    border-radius: 10px; /* Rounded corners */
+    margin: auto; /* Center horizontally with space above*/
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: relative; /* Relative positioning for z-index purposes */
+    z-index: 1;
+}
+
+/* Vertical line connecting blocks */
+.line {
+    width: 10px;
+    height: 10vh;
+    background: linear-gradient(to bottom, #6b8b6c, #60d3ed);
+    margin: 0 auto; /* Center horizontally */
+    position: relative; /* Position relative to surrounding content */
+    z-index: 1;
+}
+
+/* Style for the content inside each block */
+.content {
+    text-align: center; /* Center text inside block */
+    font-size: 24px; /* Font size */
+    font-weight: bold; /* Bold text */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.code {
+    /* width: 100%; Width of each block */
+    height: 25vh; /* Full viewport height for each block */
+    margin: auto; /* Center horizontally with space above*/
+    flex-direction: column;
+    justify-content: left;
+    font-size: clamp(1rem 5vw 2rem);
+}
+
+.code-text {
+    height: 20vh; /* Adjust based on your needs */
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+    z-index: 1;
+    font-family: monospace;
+}
+
+pre {
+    animation: auto-scroll 5s linear;
+    position: relative;
+    z-index: 0;
+    height: 100%;
+    border: 1px solid white;
+}
+
+@keyframes auto-scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+  
+/* Left and right column */
+  .column.side {
+    width: 25%;
+}
+  
+/* Middle column */
+.column.middle {
+    width: 50%;
+}
+  
+/* Clear floats after the columns */
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Style the side navigation */
+  .sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+  }
+  
+  
+  /* Side navigation links */
+  .sidenav a {
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color on hover */
+  .sidenav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Style the content */
+  .content {
+    margin-left: 200px;
+    padding-left: 20px;
+  }

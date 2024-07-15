@@ -1,27 +1,27 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+import requests
+
+
 
 # Configure application
 app = Flask(__name__)
 
-"""
-# Configure session to use filesystem (instead of signed cookies)
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
-"""
 
 @app.route('/')
-def home():
-        return render_template("index.html")
+def index():
+    """
+    response = requests.get("https://mempool.space/api/v1/prices")
 
-@app.route('/genesis', methods=['POST'])
+    if response.status_code == 200:
+        raw_price = response.json()
+        price = raw_price["USD"]
+    return render_template("index.html", price=price)
+    """
+    return render_template("index.html")
+
+@app.route('/genesis')
 def genesis():
     return render_template("genesis.html")
-
-"""
-@app.route('/button1', methods=['POST'])
-def button1():
-"""     
 
 @app.route('/bitcoin')
 def bitcoin():

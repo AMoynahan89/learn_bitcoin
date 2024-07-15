@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/styles.css"/>
-    <!-- <script src="/static/js/script.js"></script> -->
-    <title>{% block title %}Learn Bitcoin{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <div class="header">
+        <h1><a href="/">Learn Bitcoin</a></h1>
+        <a href="/donate">Donate</a>
+        <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+    </div>
+    
+    <div class="main-container">
+        <div class="sidenav" id="sidenav">
+            <a href="/genesis">Genesis</a>
+            <a href="/bitcon">Bitcoin</a>
+            <a href="/mining">Mining</a>
+            <a href="/nodes">Nodes</a>
+        </div>
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>
-

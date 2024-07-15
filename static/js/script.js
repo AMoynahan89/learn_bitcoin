@@ -15,4 +15,11 @@ async function getDataValue(url, elmntId) {
   document.getElementById(elmntId).innerHTML = response;
 }
 
-
+function toggleNav() {
+  var sidenav = document.getElementById("sidenav");
+  if (sidenav.classList.contains("open")) {
+      sidenav.classList.remove("open");
+  } else {
+      sidenav.classList.add("open");
+  }
+}

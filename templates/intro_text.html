@@ -1,117 +1,117 @@
-<pre>
-    int main(int argc, char* argv[])
-    {
-        // Set up logging
-        UniValue loggerSettings(UniValue::VOBJ);
-        loggerSettings.push_back(Pair("level", "info"));
-        loggerSettings.push_back(Pair("max-size", "1000"));
-        loggerSettings.push_back(Pair("max-threads", "16"));
-        loggerSettings.push_back(Pair("filename", "debug.log"));
-        loggerSettings.push_back(Pair("append", "true"));
-        loggerSettings.push_back(Pair("rotate", "true"));
-        loggerSettings.push_back(Pair("count", "10"));
-        loggerSettings.push_back(Pair("keep-days", "30"));
-        loggerSettings.push_back(Pair("keep-forever", "true"));
-        loggerSettings.push_back(Pair("suppress-verbose", "true"));
-        loggerSettings.push_back(Pair("suppress-debug", "true"));
-        loggerSettings.push_back(Pair("suppress-info", "true"));
-        loggerSettings.push_back(Pair("suppress-warn", "true"));
-        loggerSettings.push_back(Pair("suppress-error", "false"));
-        loggerSettings.push_back(Pair("suppress-fatal", "false"));
-    
-        // Set up network settings
-        SetNetworkParams();
-    
-        // Genesis block
-        const CBlock& genesis = *(const CBlock*)chainActive.GetBlockByHeight(0);
-        printf("Genesis block: %s\n", genesis.GetHash().ToString());
-    
-        // Initialize the transaction cache
-        txCache = new CTransactionCache();
-    
-        // Set up the initial chain state
-        if (!ReadInitialBlockDownload()) {
-            chainActive.SetBestBlock(GetInitialBlockDownload());
-        }
-        chainActive.SetBestBlock(GetBestBlock());
-        if (!CheckForkRequirements(
-                CChainParams::REGTEST,
-                consensus.nDefaultConsensus, 
-                consensus.nForkHeight, 
-                consensus.nForkBlock, 
-                consensus.nForkTime
-                )
-            ) {
-            return false;
-        }
-    
-        // Set up the BIP 22 check
-        if (!CheckBIP22Compatibility()) {
-            return false;
-        }
-    
-        // Set up the initial UI state
-        if (!uiInterface.Init(argc, argv)) {
-            return false;
-        }
-    
-        // Load the wallet
-        if (!LoadWallet()) {
-            return false;
-        }
-    
-        // Set up the RPC server
-        if (!RPCSetup()) {
-            return false;
-        }
-    
-        // Set up the initial RPC state
-        if (!SetupRPCConnections()) {
-            return false;
-        }
-    
-        // Initialize the scheduler
-        scheduler.reset(new CScheduler());
-    
-        // Set up the network daemon
-        if (!SetupDaemon()) {
-            return false;
-        }
-    
-        // Initialize the logging subsystem
-        logging.init(argc, argv, loggerSettings);
-    
-        // Run the Bitcoin network
-        bool fRunning = true;
-        while (fRunning) {
-            int nRet = Run();
-            if (nRet == false) {
-                fRunning = false;
-            } else if (nRet == 0) {
-                break;
-            } else if (nRet < 0) {
-                return false;
-            }
-        }
-    
-        // Clean up the logging subsystem
-        logging.fatal("Shutdown completed; exiting.");
-        logging.DeInit();
-    
-        // Clean up the RPC server
-        RPCShutdown();
-    
-        // Clean up the wallet
-        UnloadWallet();
-    
-        // Clean up the UI
-        uiInterface.Shutdown();
-    
-        // Clean up the network daemon
-        ShutdownDaemon();
-    
-        // Clean up the scheduler
-        scheduler.reset();
-    
-        return true;
-    </pre>
+<pre class="code">
+    <span>int main(int argc, char* argv[]) {</span>
+    <span>    // Set up logging</span>
+    <span>    UniValue loggerSettings(UniValue::VOBJ);</span>
+    <span>    loggerSettings.push_back(Pair("level", "info"));</span>
+    <span>    loggerSettings.push_back(Pair("max-size", "1000"));</span>
+    <span>    loggerSettings.push_back(Pair("max-threads", "16"));</span>
+    <span>    loggerSettings.push_back(Pair("filename", "debug.log"));</span>
+    <span>    loggerSettings.push_back(Pair("append", "true"));</span>
+    <span>    loggerSettings.push_back(Pair("rotate", "true"));</span>
+    <span>    loggerSettings.push_back(Pair("count", "10"));</span>
+    <span>    loggerSettings.push_back(Pair("keep-days", "30"));</span>
+    <span>    loggerSettings.push_back(Pair("keep-forever", "true"));</span>
+    <span>    loggerSettings.push_back(Pair("suppress-verbose", "true"));</span>
+    <span>    loggerSettings.push_back(Pair("suppress-debug", "true"));</span>
+    <span>    loggerSettings.push_back(Pair("suppress-info", "true"));</span>
+    <span>    loggerSettings.push_back(Pair("suppress-warn", "true"));</span>
+    <span>    loggerSettings.push_back(Pair("suppress-error", "false"));</span>
+    <span>    loggerSettings.push_back(Pair("suppress-fatal", "false"));</span>
+    <span>                                              </span>
+    <span>    // Set up network settings</span>
+    <span>    SetNetworkParams();</span>
+    <span>                                              </span>
+    <span>    // Genesis block</span>
+    <span>    const CBlock& genesis = *(const CBlock*)chainActive.GetBlockByHeight(0);</span>
+    <span>    printf("Genesis block: %s\n", genesis.GetHash().ToString());</span>
+    <span>                                              </span>
+    <span>    // Initialize the transaction cache</span>
+    <span>    txCache = new CTransactionCache();</span>
+    <span>                                              </span>
+    <span>    // Set up the initial chain state</span>
+    <span>    if (!ReadInitialBlockDownload()) {</span>
+    <span>        chainActive.SetBestBlock(GetInitialBlockDownload());</span>
+    <span>    }</span>
+    <span>    chainActive.SetBestBlock(GetBestBlock());</span>
+    <span>    if (!CheckForkRequirements(</span>
+    <span>            CChainParams::REGTEST,</span>
+    <span>            consensus.nDefaultConsensus, </span>
+    <span>            consensus.nForkHeight, </span>
+    <span>            consensus.nForkBlock, </span>
+    <span>            consensus.nForkTime</span>
+    <span>            )</span>
+    <span>        ) {</span>
+    <span>        return false;</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Set up the BIP 22 check</span>
+    <span>    if (!CheckBIP22Compatibility()) {</span>
+    <span>        return false;</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Set up the initial UI state</span>
+    <span>    if (!uiInterface.Init(argc, argv)) {</span>
+    <span>        return false;</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Load the wallet</span>
+    <span>    if (!LoadWallet()) {</span>
+    <span>        return false;</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Set up the RPC server</span>
+    <span>    if (!RPCSetup()) {</span>
+    <span>        return false;</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Set up the initial RPC state</span>
+    <span>    if (!SetupRPCConnections()) {</span>
+    <span>        return false;</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Initialize the scheduler</span>
+    <span>    scheduler.reset(new CScheduler());</span>
+    <span>                                              </span>
+    <span>    // Set up the network daemon</span>
+    <span>    if (!SetupDaemon()) {</span>
+    <span>        return false;</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Initialize the logging subsystem</span>
+    <span>    logging.init(argc, argv, loggerSettings);</span>
+    <span>                                              </span>
+    <span>    // Run the Bitcoin network</span>
+    <span>    bool fRunning = true;</span>
+    <span>    while (fRunning) {</span>
+    <span>        int nRet = Run();</span>
+    <span>        if (nRet == false) {</span>
+    <span>            fRunning = false;</span>
+    <span>        } else if (nRet == 0) {</span>
+    <span>            break;</span>
+    <span>        } else if (nRet < 0) {</span>
+    <span>            return false;</span>
+    <span>        }</span>
+    <span>    }</span>
+    <span>                                              </span>
+    <span>    // Clean up the logging subsystem</span>
+    <span>    logging.fatal("Shutdown completed; exiting.");</span>
+    <span>    logging.DeInit();</span>
+    <span>                                              </span>
+    <span>    // Clean up the RPC server</span>
+    <span>    RPCShutdown();</span>
+    <span>                                              </span>
+    <span>    // Clean up the wallet</span>
+    <span>    UnloadWallet();</span>
+    <span>                                              </span>
+    <span>    // Clean up the UI</span>
+    <span>    uiInterface.Shutdown();</span>
+    <span>                                              </span>
+    <span>    // Clean up the network daemon</span>
+    <span>    ShutdownDaemon();</span>
+    <span>                                              </span>
+    <span>    // Clean up the scheduler</span>
+    <span>    scheduler.reset();</span>
+    <span>                                              </span>
+    <span>    return true;</span>
+    <span>}</span>
+</pre>
