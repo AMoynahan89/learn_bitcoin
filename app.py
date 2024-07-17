@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, sessions
 import requests
 
 
@@ -19,24 +19,23 @@ def index():
     """
     return render_template("index.html")
 
-@app.route('/genesis')
-def genesis():
-    return render_template("genesis.html")
+@app.route('/intro')
+def intro():
+    return render_template("intro.html")
 
-@app.route('/bitcoin')
-def bitcoin():
-    return render_template("bitcoin.html")
+@app.route('/get_started')
+def get_started():
+    return render_template("get_started.html")
 
-@app.route('/nodes')
-def nodes():
-    return render_template("nodes.html")
+@app.route('/guide')
+def guide():
+    return render_template("guide.html")
 
-@app.route('/mining')
-def mining():
-    return render_template("mining.html")
+@app.route('/technical')
+def technical():
+    return render_template("technical.html")
 
-"""
-@app.route('/')
-def _______():
-    return render_template("_______.html")
-"""
+
+@app.route('/history')
+def history():
+    return render_template("history.html")

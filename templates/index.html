@@ -3,19 +3,73 @@
 {% block title %}Learn Bitcoin{% endblock %}
 
 {% block content %}
-<div class="content" id="bitcoin">
-    <div class="card">
-        <div class="card-element">
-        <h1>What is Bitcoin</h1>
-        <p>A decentralized digital currency.</p>
-        <form action="/bitcoin">
-            <button>Genesis</button>
-        </form>
+<div class="content">
+
+    <div class="card" id="bitcoin">
+        <div class="card-element text">
+            <h1>Intro to Bitcoin</h1>
+            <p>A brief history of bitcoin and why it is important today.</p>
+            <form action="/intro">
+                <button class="card-button">Intro</button>
+            </form>
         </div>
-        <div class="card-element">
-        <img src="https://amoynahan89.github.io/learn_bitcoin/images/bitcoin_logo.png" alt="Bitcoin Logo" height="150px" width="150px">
+        <div class="card-element image">
+            <img src="https://amoynahan89.github.io/learn_bitcoin/images/bitcoin-holo.png" alt="Bitcoin Logo" height="150px" width="150px">
         </div>
     </div>
+
+    <div class="card" id="nodes">
+        <div class="card-element text">
+            <h1>Using Bitcoin</h1>
+            <p>Get started today. Learn how you can take advantage of one of the greatest technological and economic advancements of our lifetime.</p>
+            <form action="/get_started">
+                <button class="card-button">Get Started</button>
+            </form>
+        </div>
+        <div class="card-element image">
+            <img src="https://amoynahan89.github.io/learn_bitcoin/images/bitcoin-holo.png" alt="Bitcoin Logo" height="150px" width="150px">
+        </div>
+    </div>
+
+    <div class="card" id="bitcoin">
+        <div class="card-element text">
+            <h1>Beginner's Guide</h1>
+            <p>Get a braod overview of the fundamental concepts of bitcoin.</p>
+            <form action="/guide">
+                <button class="card-button">Guide</button>
+            </form>
+        </div>
+        <div class="card-element image">
+            <img src="https://amoynahan89.github.io/learn_bitcoin/images/bitcoin-holo.png" alt="Bitcoin Logo" height="150px" width="150px">
+        </div>
+    </div>
+
+    <div class="card" id="technical">
+        <div class="card-element text">
+            <h1>Advanced Technical Details</h1>
+            <p>Go deep into the weeds of bitcoin's inner workings. Mining, blocks, nodes, blockchain, etc.</p>
+            <form action="/technical">
+                <button class="card-button">Technical</button>
+            </form>
+        </div>
+        <div class="card-element image">
+            <img src="https://amoynahan89.github.io/learn_bitcoin/images/bitcoin-holo.png" alt="Bitcoin Logo" height="150px" width="150px">
+        </div>
+    </div>
+
+    <div class="card" id="history">
+        <div class="card-element text">
+            <h1>A History of Bitcoin</h1>
+            <p>Significant events from Bitcoin's relatively short but storied past.</p>
+            <form action="/history">
+                <button class="card-button">History</button>
+            </form>
+        </div>
+        <div class="card-element image">
+            <img src="https://amoynahan89.github.io/learn_bitcoin/images/bitcoin-holo.png" alt="Bitcoin Logo" height="150px" width="150px">
+        </div>
+    </div>
+
 </div>
 {% endblock %}
 
