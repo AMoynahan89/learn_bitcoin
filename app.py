@@ -1,12 +1,10 @@
 from flask import Flask, render_template, sessions
 import requests
-from PIL import Image
-import numpy as np
-import os
 
-from matplotlib.backends.backend_agg import FigureCanvasAgg
 from matplotlib.figure import Figure
+#import numpy as np
 
+import os
 
 # Configure application
 app = Flask(__name__)
@@ -24,17 +22,13 @@ def index():
     """
 
     fig = Figure(figsize=(5, 4), dpi=100)
-    # A canvas must be manually attached to the figure (pyplot would automatically
-    # do it).  This is done by instantiating the canvas with the figure as
-    # argument.
-    canvas = FigureCanvasAgg(fig)
+    
 
-    # Do some plotting.
+    # Do some plotting
     ax = fig.add_subplot()
-    ax.plot([1, 2, 3])
+    ax.plot([1, 2, 3, 4], [0, 10, 20, 40])
 
-    # Option 1: Save the figure to a file; can also be a file-like object (BytesIO,
-    # etc.).
+    # Option 1: Save the figure to a file
     image_path = os.path.join(app.root_path, "static/images/test.png")
     fig.savefig(image_path)
 
