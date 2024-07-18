@@ -113,19 +113,52 @@ body {
 .section {
     padding: 5%;
     max-width: 1100px;
-    min-width: 450px;
+    width: 100%;
+    margin: auto;
 }
 
 .section h1 {
     text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-.section h1, h2, h3, p, ul {
-    padding: 15px;
+.section h2 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.section h3 {
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+.section p, .section ul {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.section ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
 .section.odd {
     background-color: #272626;
+}
+
+.section.even {
+    background-color: #333;
+}
+
+.section a {
+    color: #aba7a7;
+    text-decoration: none;
+}
+
+.section a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive layout - makes the sidenav collapse into a hamburger menu */
@@ -142,8 +175,21 @@ body {
     }
     .sidenav.open {
         width: 200px;
+        background-color: #212121;
     }
     .section {
         max-width: 100%;
+    }
+    .section h1 {
+        font-size: 2em;
+    }
+    .section h2 {
+        font-size: 1.5em;
+    }
+    .section h3 {
+        font-size: 1.2em;
+    }
+    .section p, .section ul {
+        font-size: 1em;
     }
 }
