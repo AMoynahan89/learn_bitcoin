@@ -101,13 +101,31 @@ body {
     flex: 1;
     margin: 10px;
     max-width: 50%;
-    min-width: 225px;
+    min-width: 300px;
 
 }
 
 .card-element.image {
     flex: 0 0 auto;
     margin: 10px;
+}
+
+.section {
+    padding: 5%;
+    max-width: 1100px;
+    min-width: 450px;
+}
+
+.section h1 {
+    text-align: center;
+}
+
+.section h1, h2, h3, p, ul {
+    padding: 15px;
+}
+
+.section.odd {
+    background-color: #272626;
 }
 
 /* Responsive layout - makes the sidenav collapse into a hamburger menu */
@@ -124,5 +142,8 @@ body {
     }
     .sidenav.open {
         width: 200px;
+    }
+    .section {
+        max-width: 100%;
     }
 }

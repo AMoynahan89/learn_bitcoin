@@ -1,7 +1,91 @@
 {% extends "template.html" %}
 
-{% block title %}Genesis{% endblock %}
+{% block title %}Get Started{% endblock %}
 
 {% block content %}
-<h2>Get Started</h2>
+<div class="content">
+
+    <div class="section odd">
+        <h1>How to get started</h1>
+        <h2>Educate Yourself</h2>
+        <h4>Before diving into the practical steps, it's essential to take some time to understand what Bitcoin is and how it works. Take a moment to explore this site. Learn some of the basic terminology. Try to understand why you want to buy bitcoin and how you plan to use it. Proceed with caution.</h4>
+        <p><a>Here</a> are some other great educational <a>resources</a>.</p>
+    </div>
+
+    <div class="section even">
+        <h1>Buying Bitcoin</h1>
+        <h2>Peer to Peer Exchanges</h2>
+        <p>This method is slightly more advanced as you may need to already have a wallet setup and some use other aspects of bitcoin such as lightning.</p>
+        <p>A peer to peer(p2p) exchange can give you the added benefit of privacy. Exchanges like this do not require any personal information preventing others from knowing about your bitcoin purchases.</p>
+        <h2>Centralized Exchanges</h2>
+        <p>Centralized exchanges are possibly easier to use and they allow you to do things like automatic bank withdrawls but will require personal information such as your name, address, social security number, or even some form of photo id.</p>
+        <p>The exchange will create a wallet for you and manage your private keys.</p>
+        <p>Obviously this is where the phrase "Not your keys, not your coins." comesfrom as there are many stories of exchanges not giving users their funds due to one reason or another.</p>
+        <p>This third party risk is the exact problem that bitcoin is attempting to solve. By keeping your bitcoin on one of these exchages you are giving up your privacy and the freedom to spend your bitcoin how you choose to.</p>
+    </div>
+
+    <div class="section odd">
+        <h1>Storing Your Bitcoin</h1>
+        <h1>Not your keys, not your coins!</h1>
+        <h4>Contrary to what you might think your bitcoin wallet does NOT store your bitcoin. It actually stores your private key which is used to send your bitcoin when you want to. This is a good thing, as it means your bitcoin can be retrieved even if your wallet is lost or broken as long as you maintain a record of your private key. For ease of discussion most people will still say your wallet holds your bitcoin as will I.</h4>
+        <h2>Types of Wallets</h2>
+        <p>You have two main options when it comes to storing your bitcoin</p>
+        <h3>Hardware Wallets</h3>
+        <ul>
+            <li>Hardware Wallets</li>
+            <li>Software Wallets</li>
+        </ul>
+    </div>
+
+    <div class="section even">
+        <h1>Hardware Wallets</h1>
+        <h2>Also known as cold storage</h2>
+        <h4>This is the recommended method for maximum security and control over you coins</h4>
+
+        <h2>Choosing a Device</h2>
+        <ul>
+            <li>It should use Free and Open Source Software(FOSS)</li>
+            <li>You should buy your device directly from the manufacturer.</li>
+            <li>NEVER buy a used device as your funds may be stolen.</li>
+            <li>NEVER use a device that appears to have been tampered with when you recieve it as your funds may be stolen.</li>
+        </ul>
+        <h4>One that I like is the Blockstream Jade. A couple other good options are the seed signer and, for more advanced users the cold card.</h4>
+        <p>You will also need a software wallet that can communicate with your hardware wallet.</p>
+        <p>This can be the one that comes with the device that you buy or...</p> 
+        <p>for a little added security you can use a software that is not affilliated with the manufacturer of your chosen device.</p>
+        <p>Sparrow wallet is my favorite but there are many options. Just remember to find one that uses FOSS and is compatible with your device.</p>
+        <h3>When taking custody of your bitcoin be sure you have an adequate method to protect your recovery seed such as a punched metal plate.</h3>
+    </div>
+
+    <div class="Section odd">
+        <h1>Software Wallets</h1>
+        <h2>Also known as a hot wallet</h2>
+        <h4>This is NOT the reccommended method to store you coins</h4>
+        <p>When using this method you are storing you private key somewhere on your computer leaving them vunerable to online attacks.</p>
+        <h4>IF ANYONE GAINS ACCESS TO YOUR PRIVATE KEY THEY CAN STEAL YOUR FUNDS!!!</h4>
+    </div>
+
+    <div class="section even">
+        <h1>Recieving Bitcoin</h1>
+        <p>This is where your private key is KEY!</p>
+    </div>
+
+    <div class="section odd">
+        <h1>Sending Bitcoin</h1>
+        <p>This is where your private ke is KEY!</p>
+        <h2>How to Send Bitcoin.</h2>
+    </div>
+
+    <div class="section odd">
+        <h1>Next Steps</h1>
+        <h2>Don't Stop Learning</h2>
+        <p>There is much more to do with bitcoin than I mentioned here so I have listed a few things worth looking into.</p>
+        <ui>
+            <li>I highly reccommend running your own node.</li>
+            <li>You can mine bitcoin at home.</li>
+            <li>Stay updated on the development of the bitcoin network.</li>
+            <li>Learn about the challenges bitcoin faces for example the introduction of arbitrary data on the blockchain</li>
+        </ui>        
+    </div>
+</div>
 {% endblock %}
