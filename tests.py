@@ -1,3 +1,16 @@
+import os
+
+my_dir = os.getcwd()
+
+with os.scandir(f"{my_dir}/static/images") as dir:
+    for file in dir:
+        if file.name.startswith('test') and file.is_file():
+            print(file.name)
+
+
+
+
+"""
 import matplotlib.pyplot as plt
 import numpy as np
 import requests
@@ -21,7 +34,7 @@ ax.plot(times, prices)               # Plot some data on the Axes.
 plt.show()                           # Show the figure.
 
 
-"""
+
 
 {
   prices: [

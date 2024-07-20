@@ -16,12 +16,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #5b139a;
-    color: white;
+    background-color: #212121;
+    color: orange;
 }
 
 .header a {
-    color: white;
+    color: orange;
+    padding: 10px;
     text-decoration: none;
 }
 
@@ -37,8 +38,8 @@ body {
 }
 
 .main-container {
-    display: flex;
-    margin-top: 80px;
+    display: grid;
+    margin-top: 150px;
 }
 
 /* Style the side navigation */
@@ -67,38 +68,27 @@ body {
 
 /* Style the content */
 .content {
-    display: flex; /* Add display: flex to make it a flex container */
-    flex-direction: column; /* Ensure content is laid out in a column */
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
     justify-content: center;
-    align-items: center;
-    flex-grow: 1; /* allow content to take up remaining space */
     margin: 20px;
-    margin-left: 200px;
     transition: margin-left 0.3s;
     color: white;
     padding: 20px;
 }
 
 .card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    margin: 16px 20px 100px 20px;
-    padding: 60px;
+    padding: 10px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 500px;
     border-radius: 20px;
     background-color: #272626;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card-element {
-}
-
 .card-element.text {
-    flex: 1;
     margin: 10px;
     max-width: 50%;
     min-width: 300px;
@@ -106,7 +96,6 @@ body {
 }
 
 .card-element.image {
-    flex: 0 0 auto;
     margin: 10px;
 }
 
