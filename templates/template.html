@@ -9,20 +9,30 @@
 <body>
     <div class="header">
         <h1><a href="/">Learn Bitcoin</a></h1>
-        <nav>
-            <a href="/how_to_use">Use Bitcoin</a>
-            <a href="/how_it_works">Learn More</a>
-            <a href="/explorer">Block Explorer</a>
+        <nav class="nav">
+            <a href="/use">Use Bitcoin</a>
+            <a href="/learn">Learn More</a>
+            <a href="/explore">Block Explorer</a>
             <a href="/donate">Donate</a>
         </nav>
-        <!-- <button onclick="toggleTheme()"></button> -->
         <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+
+        <div id="drop-down" class="drop-down">
+            <nav>
+                <a href="/use">Use Bitcoin</a>
+                <a href="/learn">Learn More</a>
+                <a href="/explore">Block Explorer</a>
+                <a href="/donate">Donate</a>
+            </nav>
+        </div>
     </div>
-    
     <div class="main-container">
 
         {% block content %}{% endblock %}
     </div>
     <script src="/static/js/script.js"></script>
 </body>
+<footer>
+    <a href="https://www.vecteezy.com/free-vector/bitcoin">Bitcoin Vectors by Vecteezy</a>
+</footer>
 </html>

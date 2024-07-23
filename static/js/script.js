@@ -1,25 +1,8 @@
-async function getDataJson(url, elmntId, query) {
-  const apiCall = await fetch(url);
-  console.log(apiCall)
-  const response = await apiCall.json();
-  console.log(response)
-  document.getElementById(elmntId).innerHTML = response[query];
-  console.log(response[query])
-}
-
-async function getDataValue(url, elmntId) {
-  const apiCall = await fetch(url);
-  console.log(apiCall)
-  const response = await apiCall.text();
-  console.log(response)
-  document.getElementById(elmntId).innerHTML = response;
-}
-
 function toggleNav() {
-  var sidenav = document.getElementById("sidenav");
-  if (sidenav.classList.contains("open")) {
-      sidenav.classList.remove("open");
+  var navbar = document.getElementById("drop-down");
+  if (navbar.classList.contains("open")) {
+      navbar.classList.remove("open");
   } else {
-      sidenav.classList.add("open");
+      navbar.classList.add("open");
   }
 }
