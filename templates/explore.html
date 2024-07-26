@@ -3,5 +3,37 @@
 {% block title %}Explorer{% endblock %}
 
 {% block content %}
+<div class="block-container">
+    <div class="block">
+        <div class="block-element block-header">
+            <h3>Block Header</h3>
+            <p>ID: {{ clean_block.id }}</p>
+            <p>Merkle Root: {{ clean_block.merkle_root }}</p>
+            <p>Previous Block Hash: {{ clean_block.previousblockhash }}</p>
+            <p>Height: {{ clean_block.height }}</p>
+            <p>Timestamp: {{ clean_block.timestamp }}</p>
+            <p>Nonce: {{ clean_block.nonce }}</p>
+        </div>
+
+        <div class="block-element block-body">
+            <h3>Transactions ({{ clean_block.tx_count }})</h3>
+            <div class="transaction-pool"></div>
+        </div>
+
+        <div class="block-element block-footer">
+            <h3>Block Footer</h3>
+            <p>Version: {{ clean_block.version }}</p>
+            <p>Bits: {{ clean_block.bits }}</p>
+            <p>Difficulty: {{ clean_block.difficulty }}</p>
+            <p>Median Time: {{ clean_block.mediantime }}</p>
+            <p>Reward: {{ clean_block.reward }}</p>
+            <p>Median Fee: {{ clean_block.medianFee }}</p>
+            <p>Total Fees: {{ clean_block.totalFees }}</p>
+            <p>Mining Pool: {{ clean_block.pool_name }}</p>
+            <p>Weight: {{ clean_block.weight }}</p>
+            <p>Size: {{ clean_block.size }}</p>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 import sqlite3
 
 
-def initialize_db():
+def main():
     con = sqlite3.connect("database/blocks.db")
     db = con.cursor()
 
@@ -36,4 +36,4 @@ def initialize_db():
 
 
 if __name__ == "__main__":
-    initialize_db()
+    main()

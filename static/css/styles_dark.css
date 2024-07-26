@@ -192,6 +192,40 @@ footer a {
     text-decoration: underline;
 }
 
+.block-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.block {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 20px;
+    background-color: #272626;
+    box-shadow: 0 4px 8px orange;
+    color: orange;
+}
+
+.block p {
+    margin: 2px;
+}
+
+.block-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block-element.text {
+    max-width: 50%;
+    min-width: 300px;
+    color: orange;
+}
+
+
 @media screen and (max-width: 700px) {
     .content {
         display: grid;

@@ -1,32 +1,5 @@
-"""
-# from flask import Flask, sessions
-import requests
-
-import datetime
-from tzlocal import get_localzone
-
-
-def local_time(unix):
-    utc_time = datetime.datetime.fromtimestamp(unix, tz=datetime.timezone.utc)
-    local_tz = get_localzone()
-    print(local_tz)
-    local_time = utc_time.astimezone(local_tz)
-    print(local_time)
-
-local_time(1721757096)
-
-
-
-
-height = block["height"]
-db.execute("SELECT * FROM block WHERE height = ?", height)
-
-times = [result["time"] for result in data["prices"] if result["USD"] == 0]
-"""
-
 import requests
 import sqlite3
-import db
 
 
 # Create database and create cursor object
@@ -183,3 +156,56 @@ main()
 
 
 
+"""
+# from flask import Flask, sessions
+import requests
+
+import datetime
+from tzlocal import get_localzone
+
+
+def local_time(unix):
+    utc_time = datetime.datetime.fromtimestamp(unix, tz=datetime.timezone.utc)
+    local_tz = get_localzone()
+    print(local_tz)
+    local_time = utc_time.astimezone(local_tz)
+    print(local_time)
+
+local_time(1721757096)
+
+
+
+
+height = block["height"]
+db.execute("SELECT * FROM block WHERE height = ?", height)
+
+times = [result["time"] for result in data["prices"] if result["USD"] == 0]
+"""
+
+"""
+    # Chech if file exists
+    my_dir = os.getcwd()
+    with os.scandir(f"{my_dir}/static/images") as dir:
+        for file in dir:
+            if file.name.startswith('test') and file.is_file():
+                return render_template("index.html", image_url="/static/images/test.png")
+                
+        response = requests.get("https://mempool.space/api/v1/historical-price")
+
+        if response.status_code == 200:
+            data = response.json()
+
+        times = [result["time"] for result in data["prices"] if result["USD"] > 0]
+        prices = [result["USD"] for result in data["prices"] if result["USD"] > 0]
+
+        fig = Figure(figsize=(5, 4), dpi=100)
+
+        # Do some plotting
+        ax = fig.add_subplot()
+        ax.plot(times, prices)
+
+        # Option 1: Save the figure to a file
+        image_path = os.path.join(app.root_path, "static/images/test.png")
+        fig.savefig(image_path)
+    return render_template("index.html", image_url="/static/images/test.png")
+"""
