@@ -2,7 +2,7 @@ from flask import Flask, render_template, sessions
 import requests
 
 import sqlite3
-import make_db
+import db
 
 from matplotlib.figure import Figure
 
@@ -10,8 +10,8 @@ from matplotlib.figure import Figure
 app = Flask(__name__)
 
 # Create database and cursor object
-make_db.initialize_db()
-db = make_db.connect("database/block.db")
+db.initialize_db()
+db = db.connect("database/block.db")
 
 
 @app.route('/')
