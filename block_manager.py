@@ -4,8 +4,8 @@ import sqlite3
 
 # Create database and create cursor object
 #db.initialize_db()
-con = sqlite3.connect("database/blocks.db")
-db = con.cursor()
+#con = sqlite3.connect("database/blocks.db")
+#db = con.cursor()
 
 
 # Get current block height
@@ -69,6 +69,9 @@ def parse_block(block) -> dict:
 
 # Parse blocks and store block data to database
 def get_clean_blocks(blocks_blob) -> list:
+    con = sqlite3.connect("database/blocks.db")
+    db = con.cursor()
+
     clean_blocks = []
 
     # Iterate over list of raw blocks
@@ -89,11 +92,14 @@ def get_clean_blocks(blocks_blob) -> list:
             #print("Block already in database:", block_height)
         #print(len(clean_blocks))
     
+    con.close()
     return clean_blocks
 
 
 #Stores block data of 1 block at a time
 def store_block_data(clean_block) -> None:
+    con = sqlite3.connect("database/blocks.db")
+    db = con.cursor()
     # Extract the values from the dictionary in the required order
     block_data = [
         clean_block["id"],
@@ -138,21 +144,21 @@ def store_block_data(clean_block) -> None:
         ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, block_data)
     con.commit()
+    con.close()
 
 
 
-"""
+
 
 # App GET request on page load
 def main():
     tip_height = get_tip_height()
     blocks_blob = get_blocks_blob(tip_height)
-    blocks = get_clean_blocks(blocks_blob)
+    clean_blocks = get_clean_blocks(blocks_blob)
+    return clean_blocks
 
 
 main()
-
-"""
 
 
 
