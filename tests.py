@@ -7,6 +7,15 @@ with os.scandir(f"{my_dir}/static/images") as dir:
     for file in dir:
         if file.name.startswith('test') and file.is_file():
             print(file.name)
+
+
+import os
+
+my_dir = os.getcwd()
+file = f"{my_dir}/static/images/test.png"
+
+if os.path.isfile(file):
+    print(file)
 """
 
 
@@ -178,6 +187,80 @@ print(db.execute("SELECT * FROM blocks").fetchall())
 
 
 
+# Generate qr code for bitcoin wallet address
+"""
+import qrcode
+img = qrcode.make('Some data here')
+type(img)  # qrcode.image.pil.PilImage
+img.save("testing.png")
+
+format
+bitcoin:<address>[?amount=<amount>][?label=<label>][?message=<message>]
+bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz
+
+
+import qrcode
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data('bitcoin:bc1qvgz5skmf9etdggqqharkvyf9weczefwumxw5yf?amount=0.00059&label=Molly&message=Happy%20Birth%20Day!')
+qr.make(fit=True)
+
+img = qr.make_image(back_color=(255, 165, 0), fill_color=(41, 39, 39))
+img.save("testing.png")
+"""
+
+
+import os
+import qrcode
+
+
+my_dir = os.getcwd()
+file = f"{my_dir}/static/images/address_qr.png" 
+
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+qr.add_data('bitcoin:bc1qvgz5skmf9etdggqqharkvyf9weczefwumxw5yf?amount=0.00059&label=Molly&message=Happy%20Birth%20Day!')
+qr.make(fit=True)
+
+img = qr.make_image(back_color=(255, 165, 0), fill_color=(41, 39, 39))
+img.save(file)
 
 
 
+"""
+import os
+
+# Chech if file exists
+my_dir = os.getcwd()
+with os.scandir(f"{my_dir}/static/images") as dir:
+    for file in dir:
+        if file.name.startswith('test') and file.is_file():
+            return render_template("index.html", image_url="/static/images/test.png")
+            
+    response = requests.get("https://mempool.space/api/v1/historical-price")
+
+    if response.status_code == 200:
+        data = response.json()
+
+    times = [result["time"] for result in data["prices"] if result["USD"] > 0]
+    prices = [result["USD"] for result in data["prices"] if result["USD"] > 0]
+
+    fig = Figure(figsize=(5, 4), dpi=100)
+
+    # Do some plotting
+    ax = fig.add_subplot()
+    ax.plot(times, prices)
+
+    # Option 1: Save the figure to a file
+    image_path = os.path.join(app.root_path, "static/images/test.png")
+    fig.savefig(image_path)
+return render_template("index.html", image_url="/static/images/test.png")
+"""

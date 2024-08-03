@@ -3,5 +3,18 @@
 {% block title %}Donate{% endblock %}
 
 {% block content %}
+<div class="content block-element">
+    <h1>Donate Bitcoin</h1>
+    <p>If you would like to support us, please select an amount to donate:</p>
 
+    <div class="donation-option">
+        <button onclick="showQRCode('/static/images/address_qr.png')">50,000 sats</button>
+        <button onclick="showQRCode('qr_100000_dono.png')">100,000 sats</button>
+        <button onclick="showQRCode('200000_dono.png')">200,000 sats</button>
+    </div>
+
+    <div id="qr-code-container">
+        <img id="qr-code" src="" alt="QR Code for Bitcoin Donation">
+    </div>
+</div>
 {% endblock %}

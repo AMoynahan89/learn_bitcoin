@@ -261,6 +261,9 @@ footer a {
     color: orange;
 }
 
+#qr-code-container {
+    display: none;
+}
 
 @media screen and (max-width: 700px) {
     .content {
