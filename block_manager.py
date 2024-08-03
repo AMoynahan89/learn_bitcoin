@@ -2,12 +2,6 @@ import requests
 import sqlite3
 
 
-# Create database and create cursor object
-#db.initialize_db()
-#con = sqlite3.connect("database/blocks.db")
-#db = con.cursor()
-
-
 # Get current block height
 def get_tip_height():
     response = requests.get("https://mempool.space/api/blocks/tip/height")
@@ -100,6 +94,7 @@ def get_clean_blocks(blocks_blob) -> list:
 def store_block_data(clean_block) -> None:
     con = sqlite3.connect("database/blocks.db")
     db = con.cursor()
+
     # Extract the values from the dictionary in the required order
     block_data = [
         clean_block["id"],
@@ -143,49 +138,6 @@ def store_block_data(clean_block) -> None:
             pool_name
         ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, block_data)
+
     con.commit()
     con.close()
-
-
-
-
-
-# App GET request on page load
-def main():
-    tip_height = get_tip_height()
-    blocks_blob = get_blocks_blob(tip_height)
-    clean_blocks = get_clean_blocks(blocks_blob)
-    return clean_blocks
-
-
-main()
-
-
-
-"""
-# from flask import Flask, sessions
-import requests
-
-import datetime
-from tzlocal import get_localzone
-
-
-def local_time(unix):
-    utc_time = datetime.datetime.fromtimestamp(unix, tz=datetime.timezone.utc)
-    local_tz = get_localzone()
-    print(local_tz)
-    local_time = utc_time.astimezone(local_tz)
-    print(local_time)
-
-local_time(1721757096)
-
-
-
-
-height = block["height"]
-db.execute("SELECT * FROM block WHERE height = ?", height)
-
-times = [result["time"] for result in data["prices"] if result["USD"] == 0]
-"""
-
-

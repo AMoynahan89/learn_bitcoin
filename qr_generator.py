@@ -53,14 +53,9 @@ def save_qr(qr_img, img_name):
 
 
 
+
+
 """
-uri = bit_uri("bc1qvgz5skmf9etdggqqharkvyf9weczefwumxw5yf", amount="3", label="Molly")
-qr_img = make_qr(uri)
-img_name = "bit_qr"
-save_qr(qr_img, img_name)
-
-
-
 URI format
 bitcoin:<address>[?amount=<amount>][?label=<label>][?message=<message>]
 bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz
