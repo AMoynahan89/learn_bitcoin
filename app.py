@@ -5,7 +5,9 @@ import make_db
 import block_manager as bm
 import os
 import qrcode
-
+import base64
+from io import BytesIO
+import qr_generator as qr
 
 # Configure application
 app = Flask(__name__)
@@ -95,8 +97,47 @@ def load_block_data():
     return jsonify(clean_block)
 
 
-@app.route('/donate')
+@app.route('/donate', methods=["GET", "POST"])
 def donate():
+    return render_template("donate.html")
+
+
+@app.route('/make_qr', methods=["GET", "POST"])
+def make_qr():
+    address = "bc1q2dgdxzum2ctq4mqeyx6yrt4j00pewuk8xzxgmt"
+    if request.method == "POST":
+        amount = request.form.get("amount")
+        print(amount)
+        sats = int(amount) / 100000000
+        label = "Custom-Donation"
+
+        uri = qr.bit_uri(address, amount=sats, label=label)
+        img = qr.make_qr(uri)
+
+        buffer = BytesIO()
+        img.save(buffer, format="PNG")
+        buffer.seek(0)
+        data = base64.b64encode(buffer.getvalue()).decode()
+        
+        return jsonify(img=data)
+
+    else:
+        amount = request.args.get("amount")
+        if amount:
+            sats = int(amount) / 100000000
+            label = "Custom-Donation"
+
+            uri = qr.bit_uri(address, amount=sats, label=label)
+            img = qr.make_qr(uri)
+
+            buffer = BytesIO()
+            img.save(buffer, format="PNG")
+            buffer.seek(0)
+            data = base64.b64encode(buffer.getvalue()).decode()
+            
+            return jsonify(img=data)
+
+    """
     # Where to save image
     my_dir = os.getcwd()
     file = f"{my_dir}/static/images/address_qr.png"
@@ -106,16 +147,4 @@ def donate():
         return render_template("donate.html", qr_path=file)
     # If file does not exist creat qr code 
     else:
-        qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=10,
-            border=4,
-        )
-        qr.add_data('bc1qvgz5skmf9etdggqqharkvyf9weczefwumxw5yf')
-        qr.make(fit=True)
-
-        img = qr.make_image(back_color=(255, 165, 0), fill_color=(41, 39, 39))
-        img.save(file)
-
-        return render_template("donate.html", qr_path=file)
+    """

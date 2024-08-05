@@ -3,7 +3,7 @@ import qrcode
 
 
 def bit_uri(address, amount=None, label=None, message=None):
-    qr_in = f"bitcoin:{address}"
+    uri = f"bitcoin:{address}"
     data = {
         "amount": amount,
         "label": label,
@@ -17,12 +17,12 @@ def bit_uri(address, amount=None, label=None, message=None):
         count += 1
 
         if count == 1:
-            qr_in = qr_in + f"?{key}={data[key]}"
+            uri = uri + f"?{key}={data[key]}"
             continue
         elif count > 1:
-            qr_in = qr_in + f"&{key}={data[key]}"
+            uri = uri + f"&{key}={data[key]}"
 
-    return qr_in
+    return uri
 
 
 def make_qr(bit_uri):

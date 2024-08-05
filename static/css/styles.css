@@ -1,0 +1,335 @@
+/* custom-bootstrap.css */
+
+/* Root variables for your custom color scheme */
+:root {
+    --bs-primary: orange; /* Orange for accent color */
+    --bs-secondary: #444444; /* Lighter gray for secondary background */
+    --bs-tertiary: #666666; /* Another lighter shade of gray for tertiary background */
+    --bs-dark: #222222; /* Dark gray for primary background */
+    --bs-light: #f8f9fa; /* Light color for contrast */
+    --bs-body-color: #ffffff; /* Body text color */
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bs-dark);
+    color: var(--bs-body-color);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #292727;
+    color: orange;
+}
+
+.header a {
+    color: orange;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #ddd;
+    text-decoration: none;
+}
+
+
+
+/* Buttons */
+.btn-outline-primary {
+    border-color: var(--bs-primary);
+    color: var(--bs-body-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--bs-primary);
+    border-color: darken(var(--bs-primary), 10%);
+}
+
+
+
+/* Forms */
+.form-control {
+    background-color: var(--bs-secondary);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-tertiary);
+}
+
+.form-control:focus {
+    border-color: var(--bs-primary);
+    background-color: var(--bs-secondary);
+    color: var(--bs-body-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 153, 0, 0.25);
+}
+
+
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    text-decoration: none;
+    font-size: smaller;
+    color: rgb(177, 177, 177);
+}
+.main-container {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.drop-down {
+    display: none;
+}
+
+.drop-down.open {
+    display: block;
+    position: absolute;
+    top: 90px;
+    color: orange;
+    background-color: #212121;
+    width: 100%
+}
+
+.drop-down nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.drop-down nav a {
+    display: block;
+    padding: 10px;
+    color: orange;
+    text-decoration: none;
+}
+
+/* Style the content */
+.content {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+    transition: margin-left 0.3s;
+    color: white;
+    padding: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px 40px 20px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    background-color: #272626;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-element.text {
+    max-width: 50%;
+    min-width: 300px;
+    color: orange;
+}
+
+.card-element h2 {
+    margin-bottom: 5px;
+}
+
+.list {
+    margin-top: 0;
+}
+
+.card-element button {
+    background-color: #333;
+    border-radius: 20px;
+    color: orange;
+    width: 100px;
+    height: 30px;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card-element button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.section {
+    padding: 5%;
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+}
+
+.section h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.section h3 {
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+.section p, .section ul {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.section.odd {
+    background-color: #272626;
+}
+
+.section.even {
+    background-color: #333;
+}
+
+.section a {
+    color: #aba7a7;
+    text-decoration: none;
+}
+
+.section a:hover {
+    text-decoration: underline;
+}
+
+.block-explorer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.block-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.block-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    margin-bottom: 70px;
+    width: 70%;
+}
+
+.block-nav-item {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    background-color: orange;
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+    line-height: 80px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+}
+
+.block-nav-item:hover {
+    background-color: #ccc;
+}
+
+.block {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 20px;
+    background-color: #272626;
+    box-shadow: 0 4px 8px orange;
+    color: orange;
+}
+
+.block p {
+    margin: 2px;
+}
+
+.block-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block-element.text {
+    max-width: 50%;
+    min-width: 300px;
+    color: orange;
+}
+
+#qr-code {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        display: grid;
+        grid-template-columns: auto;
+        margin-left: 0;
+    }
+    .nav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .section {
+        max-width: 100%;
+    }
+    .section h1 {
+        font-size: 2em;
+    }
+    .section h2 {
+        font-size: 1.5em;
+    }
+    .section h3 {
+        font-size: 1.2em;
+    }
+    .section p, .section ul {
+        font-size: 1em;
+    }
+}
